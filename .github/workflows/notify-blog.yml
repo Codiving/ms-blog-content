@@ -1,0 +1,12 @@
+name: 블로그 배포 트리거
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vercel 빌드 트리거
+        run: curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
